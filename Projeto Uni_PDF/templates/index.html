@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unificar PDFs</title>
+</head>
+<body>
+    <h1>Unificar PDFs</h1>
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('index') }}">
+        <input type="file" name="file" accept=".pdf" multiple>
+        <button type="submit">Unificar PDFs</button>
+    </form>
+
+    <!-- Link para o arquivo PDF unificado -->
+    <a href="{{ url_for('download', filename='PDF_unificado.pdf') }}" download>Download PDF Unificado</a>
+
+    <!-- Exibir mensagem de erro (se houver) -->
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>
